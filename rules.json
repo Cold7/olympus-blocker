@@ -1,0 +1,58 @@
+[
+  {
+    "id": 1,
+    "priority": 1,
+    "action": { "type": "block" },
+    "condition": {
+      "requestDomains": ["rtmark.net", "my.rtmark.net"],
+      "initiatorDomains": ["olympusbiblioteca.com"]
+    }
+  },
+  {
+    "id": 2,
+    "priority": 1,
+    "action": { "type": "block" },
+    "condition": {
+      "requestDomains": ["734map.net"],
+      "initiatorDomains": ["olympusbiblioteca.com"]
+    }
+  },
+  {
+    "id": 3,
+    "priority": 1,
+    "action": { "type": "block" },
+    "condition": {
+      "resourceTypes": ["sub_frame"],
+      "initiatorDomains": ["olympusbiblioteca.com"],
+      "excludedRequestDomains": ["olympusbiblioteca.com", "dashboard.olympusbiblioteca.com"]
+    }
+  },
+  {
+    "id": 4,
+    "priority": 1,
+    "action": { "type": "block" },
+    "condition": {
+      "urlFilter": "*popunder*",
+      "initiatorDomains": ["olympusbiblioteca.com"]
+    }
+  },
+  {
+    "id": 5,
+    "priority": 1,
+    "action": { "type": "block" },
+    "condition": {
+      "urlFilter": "*clickunder*",
+      "initiatorDomains": ["olympusbiblioteca.com"]
+    }
+  },
+  {
+    "id": 6,
+    "priority": 1,
+    "action": { "type": "block" },
+    "condition": {
+      "urlFilter": "*syndication*",
+      "resourceTypes": ["script", "sub_frame"],
+      "initiatorDomains": ["olympusbiblioteca.com"]
+    }
+  }
+]

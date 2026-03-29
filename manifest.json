@@ -1,0 +1,35 @@
+{
+  "manifest_version": 3,
+  "name": "Olympus Biblioteca - Bloqueador de Overlays",
+  "version": "3.0",
+  "description": "Bloquea overlays, popunders y redirecciones en olympusbiblioteca.com",
+  "permissions": ["declarativeNetRequest"],
+  "host_permissions": [
+    "*://olympusbiblioteca.com/*",
+    "*://*.olympusbiblioteca.com/*",
+    "*://*.rtmark.net/*",
+    "*://*.734map.net/*"
+  ],
+  "content_scripts": [
+    {
+      "matches": ["*://olympusbiblioteca.com/*", "*://www.olympusbiblioteca.com/*"],
+      "js": ["blocker.js"],
+      "run_at": "document_start",
+      "all_frames": true,
+      "match_about_blank": true,
+      "world": "MAIN"
+    }
+  ],
+  "declarative_net_request": {
+    "rule_resources": [
+      {
+        "id": "block_popups",
+        "enabled": true,
+        "path": "rules.json"
+      }
+    ]
+  },
+  "icons": {
+    "48": "icon.png"
+  }
+}
