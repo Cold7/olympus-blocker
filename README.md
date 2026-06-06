@@ -1,6 +1,6 @@
 # Olympus Biblioteca – Bloqueador de Overlays
 
-Extensión para Chrome/Brave que bloquea los popunders, overlays invisibles y redirecciones no deseadas en [olympusbiblioteca.com](https://olympusbiblioteca.com).
+Extensión para Chrome/Brave que bloquea los popunders, overlays invisibles y redirecciones no deseadas en [https://olympusxyz.com/](https://olympusxyz.com/).
 
 ## El problema
 
