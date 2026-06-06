@@ -56,6 +56,6 @@ La extensión registra todo lo que bloquea en la consola del navegador con el pr
 
 ## Notas
 
-- Solo se activa en `olympusbiblioteca.com`, no afecta ningún otro sitio.
+- Solo se activa en `[olympusbiblioteca](https://olympusxyz.com/)`, no afecta ningún otro sitio.
 - Usa `world: "MAIN"` en el manifest para que las sobreescrituras de `window.open`, `eval`, etc. se apliquen en el contexto JavaScript real de la página y no en un mundo aislado.
 - Usa `match_about_blank: true` para inyectar el bloqueador dentro de iframes `about:blank`.
