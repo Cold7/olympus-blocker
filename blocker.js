@@ -11,8 +11,18 @@
 (function () {
   "use strict";
 
-  const DOMAIN = "olympusbiblioteca";
+  // Dominios propios del sitio. Para agregar uno nuevo (si el sitio vuelve a
+  // mudarse) basta con sumarlo aqui y a manifest.json + rules.json.
+  const SITE_DOMAINS = ["olympusxyz", "olympusbiblioteca"];
+  // Detecta el dominio actual dinamicamente para que tambien cubra futuras mudanzas.
+  const CURRENT_HOST = window.location.hostname;
   const LOG = "[OlympusBlocker]";
+
+  function hostIsSite(hostname) {
+    if (!hostname) return false;
+    if (hostname === CURRENT_HOST) return true;
+    return SITE_DOMAINS.some((d) => hostname.includes(d));
+  }
 
   function isSameSite(url) {
     if (!url || url === "" || url === "#") return true;
@@ -20,7 +30,7 @@
     if (url.startsWith("javascript:")) return true;
     try {
       const u = new URL(url, window.location.origin);
-      return u.hostname.includes(DOMAIN);
+      return hostIsSite(u.hostname);
     } catch {
       return true;
     }
@@ -337,9 +347,11 @@
         if (isFixed && isBig && (isInvisible || highZ)) {
           // No eliminar elementos legítimos del sitio (modals, menús, etc.)
           const hasText = (el.textContent || "").trim().length > 20;
-          const hasVisibleChildren = el.querySelector(
-            'img[src*="' + DOMAIN + '"], button, input, h1, h2, h3, p'
-          );
+          const hasVisibleChildren =
+            el.querySelector("button, input, h1, h2, h3, p") ||
+            Array.from(el.querySelectorAll("img")).some((img) =>
+              isSameSite(img.getAttribute("src") || "")
+            );
           if (!hasText && !hasVisibleChildren) {
             console.info(LOG, "Overlay eliminado:", el.tagName, el.id || el.className);
             el.remove();

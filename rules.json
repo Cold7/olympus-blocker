@@ -4,8 +4,7 @@
     "priority": 1,
     "action": { "type": "block" },
     "condition": {
-      "requestDomains": ["rtmark.net", "my.rtmark.net"],
-      "initiatorDomains": ["olympusbiblioteca.com"]
+      "urlFilter": "*popunder*"
     }
   },
   {
@@ -13,8 +12,7 @@
     "priority": 1,
     "action": { "type": "block" },
     "condition": {
-      "requestDomains": ["734map.net"],
-      "initiatorDomains": ["olympusbiblioteca.com"]
+      "urlFilter": "*clickunder*"
     }
   },
   {
@@ -22,9 +20,8 @@
     "priority": 1,
     "action": { "type": "block" },
     "condition": {
-      "resourceTypes": ["sub_frame"],
-      "initiatorDomains": ["olympusbiblioteca.com"],
-      "excludedRequestDomains": ["olympusbiblioteca.com", "dashboard.olympusbiblioteca.com"]
+      "urlFilter": "*syndication*",
+      "resourceTypes": ["script", "sub_frame"]
     }
   },
   {
@@ -32,8 +29,8 @@
     "priority": 1,
     "action": { "type": "block" },
     "condition": {
-      "urlFilter": "*popunder*",
-      "initiatorDomains": ["olympusbiblioteca.com"]
+      "regexFilter": "(rtmark|734map|popcash|popads|propellerads|adsterra|monetag|exoclick|juicyads|hilltopads|clickadu|trafficstars|trafficjunky|profitabledisplay)",
+      "resourceTypes": ["script", "sub_frame", "xmlhttprequest", "image", "object"]
     }
   },
   {
@@ -41,18 +38,14 @@
     "priority": 1,
     "action": { "type": "block" },
     "condition": {
-      "urlFilter": "*clickunder*",
-      "initiatorDomains": ["olympusbiblioteca.com"]
-    }
-  },
-  {
-    "id": 6,
-    "priority": 1,
-    "action": { "type": "block" },
-    "condition": {
-      "urlFilter": "*syndication*",
-      "resourceTypes": ["script", "sub_frame"],
-      "initiatorDomains": ["olympusbiblioteca.com"]
+      "resourceTypes": ["sub_frame"],
+      "initiatorDomains": ["olympusxyz.com", "olympusbiblioteca.com"],
+      "excludedRequestDomains": [
+        "olympusxyz.com",
+        "dashboard.olympusxyz.com",
+        "olympusbiblioteca.com",
+        "dashboard.olympusbiblioteca.com"
+      ]
     }
   }
 ]
